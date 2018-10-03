@@ -3,10 +3,10 @@
 import sys
 import urllib
 import os
+import gzip
 
 #import os.path
 #import itertools
-#import gzip
 #import math
 #import array
 #import subprocess

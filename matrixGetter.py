@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 
 import os.path
 import sys
@@ -35,7 +35,9 @@ def lexorder(p1, p2):
 def generate():
    if (len(sys.argv) != 2):
       #print "Usage: python specialize.py matrix-name"
-      print "Usage: " + sys.argv[0] + " matrix-name"
+      print ("Usage: " + sys.argv[0] + " matrix-name")
+      print ("e.g.: "  + sys.argv[0] + " fidap005")
+      print ("e.g.: "  + sys.argv[0] + " FL:FIDAP/ex5")
       return
 
    # Format of spec is described in doc.  This call turns it from
@@ -50,7 +52,7 @@ def generate():
       source = matrixname[0:colon]
       matrixname = matrixname[colon+1:]
       if source == 'FL':
-         colon = matrixname.find(':')
+         colon = matrixname.find('/')
          if colon != -1:
             group = matrixname[0:colon]
             matrixname = matrixname[colon+1:]

@@ -1,13 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import sys
 import pylab
-from  scipy.io.mmio import mmread, mminfo
+from  scipy.io import mmread, mminfo
+#from  scipy.io.mmio import mmread, mminfo
 from scipy.sparse import coo_matrix
 
 
 def main():
     if (len(sys.argv) != 2):
-        print "Usage: " + sys.argv[0] + " matrix-name"
+        print ("Usage: " + sys.argv[0] + " matrix-name")
         sys.exit(0)
     # end if 
     
@@ -35,8 +36,10 @@ def main():
     
     
     #pylab.title("Matrix :" + matrixName, fontsize=22)
-    pylab.title("Matrix: " + sys.argv[1] + ", n:" + str(n) + ", nz:" + str(A.size) + '\n',fontsize=10 )
+    pylab.title("Matrix: " + sys.argv[1] + ", n:" + str(n) + ", nz:" + str(A.size) ,fontsize=14 )
     pylab.spy(A,marker='.',markersize=1)
+    frame = pylab.gca()
+    frame.axes.get_xaxis().set_ticks([])
     pylab.savefig(outputName,format=None)
     #pylab.show()
     

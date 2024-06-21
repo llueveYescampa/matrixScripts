@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 
 import sys
 import urllib
@@ -31,6 +31,8 @@ def main():
    if (len(sys.argv) != 2):
       #print "Usage: python specialize.py matrix-name"
       print "Usage: " + sys.argv[0] + " matrix-name"
+      print "e.g.: "  + sys.argv[0] + " fidap005"
+      print "e.g.: "  + sys.argv[0] + " FL:FIDAP:ex5"
       return
 
    # Format of spec is described in doc.  This call turns it from
@@ -104,8 +106,10 @@ def generate_mm_and_plot(matrixname):
     #print A.size
     # end of creating a file in coo format    
     #pylab.title("Matrix :" + matrixname, fontsize=22)
-    pylab.title("Matrix: " + matrixname + ", n:" + str(n) + ", nz:" + str(A.size) + '\n' ,fontsize=10 )
+    pylab.title("Matrix: " + matrixname + ", n:" + str(n) + ", nz:" + str(A.size) ,fontsize=14 )
     pylab.spy(A,marker='.',markersize=1)
+    frame = pylab.gca()
+    frame.axes.get_xaxis().set_ticks([])
     pylab.savefig(outputName,format=None)
     #pylab.show()
 # end of generate_mm_and_plot()    
